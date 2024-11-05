@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RENTLY
+  
+  </title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <section class="container">
+    <div class="login-container">
+        <div class="circle circle-one"></div>
+        <div class="form-container">
+            <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" class="illustration" />
+          
+              <h1 id="hh">RENTLY</h1>
+              <br>
+            <h1 class="opacity"> LOGIN </h1>
+            
+          
+                
+            <form id="passwordForm">
+              <input type="text" placeholder="USERNAME" required/>
+              
+              <input type="password" id="password" name="password" placeholder="password" required>
+              <button class="opacity">SUBMIT</button>
+
+              
+
+              <a href="./signup.html">
+                <button class="signup-button" type="button">Sign Up</button>
+            </a>
+              
+              <div id="message" class="error"></div>
+          </form>
+      
+          <script>
+              document.getElementById('passwordForm').addEventListener('submit', function(event) {
+                  const password = document.getElementById('password').value;
+                  const message = document.getElementById('message');
+                  message.textContent = '';
+      
+                  // Regex to check for letters and numbers
+                  const hasLetters = /[a-zA-Z]/.test(password);
+                  const hasNumbers = /\d/.test(password);
+      
+                  // Check password conditions
+                  if (password.length < 8) {
+                      message.textContent = 'Password should contain at least 8 characters.';
+                      event.preventDefault(); // Prevent form submission
+                  } else if (!hasLetters || !hasNumbers) {
+                      message.textContent = 'Password must include both letters and numbers.';
+                      event.preventDefault(); // Prevent form submission
+                  } else {
+                      // Redirect to new page on successful validation
+                      window.location.href = 'success.html'; // Change this to your desired URL
+                  }
+              });
+          </script>
+            <form>
+            
+          
+      
+          </form>
+            <div class="register-forget opacity">
+            <pre>
+              
+
+             <a href="">FORGOT PASSWORD?</a> 
+            </pre>
+             
+                <form id="resetPasswordForm">
+                  <div id="dd">
+                  <pre >
+                    <div id="pp">
+                  <input type="email" id="email" name="email" required placeholder="enter your email">
+                </div>
+                  <button type="submit">send-confirmation-code</button>
+                </pre>
+              </div>
+                </div>
+                </div>
+              </form>
+          
+            
+          
+              <script>
+                  document.getElementById('resetPasswordForm').addEventListener('submit', function(event) {
+                      event.preventDefault(); // منع الإرسال التلقائي للنموذج
+          
+                      const email = document.getElementById('email').value;
+          
+                      // هنا يجب أن تضيف طلب AJAX أو Fetch API لإرسال البريد الإلكتروني إلى الخادم
+                      fetch('/send-confirmation-code', {
+                          method: 'POST',
+                          headers: {
+                              'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify({ email: email }),
+                      })
+                      .then(response => {
+                          if (response.ok) {
+                              alert('we sent the confirmation_code check your email');
+                          } else {
+                              alert('something went wrong, please try again');
+                          }
+                      })
+                      .catch(error => {
+                          console.error('Error:', error);
+                      });
+                  });
+              </script>
+            </div>
+        </div>
+        
+        <div class="circle circle-two"></div>
+    </div>
+    <div class="theme-btn-container"></div>
+</section>
+</body>
+</html>

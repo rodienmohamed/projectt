@@ -1,0 +1,52 @@
+/* Reset styling */
+.container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General body styling */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #caceec;
+  
+}
+
+
+/* Container styling */
+.container {
+  text-align: center;
+}
+
+/* Title styling */
+.container h1 {
+  margin-bottom: 30px;
+  font-size: 33px;
+  color: #7397ae;
+  font-style: italic;
+}
+
+/* Role selection buttons */
+.role-selection {
+  display: flex;
+  gap: 20px;
+}
+
+.role-button {
+  padding: 15px 30px;
+  background-color: #fbfdff;
+  color: #5b676c;
+  text-decoration:solid;
+  font-size: 25px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+  font-style:initial;
+}
+
+.role-button:hover {
+  background-color: #555;
+}
